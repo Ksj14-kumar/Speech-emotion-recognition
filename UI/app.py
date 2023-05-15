@@ -27,7 +27,7 @@ def get_file_content_as_string(path):
     
 @st.cache(show_spinner=False)
 def load_model():
-    model=tf.keras.models.load_model('https://github.com/Ksj14-kumar/Speech-emotion-recognition/blob/main/UI/mymodel.h5')
+    model=tf.keras.models.load_model('mymodel.h5')
     return model
 def application():
     models_load_state=st.text('\n Loading models..')
@@ -44,7 +44,6 @@ def application():
 def extract_mfcc(wav_file_name):
     y, sr = librosa.load(wav_file_name)
     mfccs = np.mean(librosa.feature.mfcc(y=y, sr=sr, n_mfcc=40).T,axis=0)
-    
     return mfccs
     
     
