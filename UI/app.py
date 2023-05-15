@@ -20,13 +20,14 @@ def main():
 def get_file_content_as_string(path):
     # url = 'https://raw.githubusercontent.com/chiluveri-sanjay/Emotion-recognition/main/' + path
     url = 'https://github.com/Ksj14-kumar/Speech-emotion-recognition/blob/main/UI/' + path
+    print(url)
     response = urllib.request.urlopen(url)
+    print(response)
     return response.read().decode("utf-8")
     
 @st.cache(show_spinner=False)
 def load_model():
     model=tf.keras.models.load_model('mymodel.h5')
-    
     return model
 def application():
     models_load_state=st.text('\n Loading models..')
