@@ -1,6 +1,6 @@
 import streamlit as st
 import numpy as np    
-import tensorflow as tf
+# import tensorflow as tf
 import os,urllib
 import librosa 
 
@@ -33,10 +33,7 @@ def application():
     models_load_state=st.text('\n Loading models..')
     model=load_model()
     models_load_state.text('\n Models Loading..complete')
-    
-    
     file_to_be_uploaded = st.file_uploader("Choose an audio...", type="wav")
-    
     if file_to_be_uploaded:
         st.audio(file_to_be_uploaded, format='audio/wav')
         st.success('Emotion of the audio is  '+predict(model,file_to_be_uploaded))
